@@ -107,6 +107,10 @@ bool Player::CleanUp()
 void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 
 	switch (physB->ctype) {
+	case ColliderType::RIVER_TRIGGER:
+		//app->audio->PlayMusic();
+
+		break;
 	case ColliderType::UNKNOWN:
 		break;
 	}

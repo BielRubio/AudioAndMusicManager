@@ -48,7 +48,7 @@ bool Scene::Start()
 	app->render->camera.y = 0;
 
 	//Set the window title with map/tileset info
-	SString title("Music and Audio Maneger");
+	SString title("Music and Audio Manager");
 	app->win->SetTitle(title.GetString());
 
 	return true;

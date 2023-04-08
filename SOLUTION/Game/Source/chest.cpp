@@ -31,7 +31,7 @@ bool Chest::Start() {
 	texture = app->tex->Load(texturePath);
 	
 	pbody = app->physics->CreateRectangle(position.x, position.y,8,8, bodyType::STATIC);
-	shimmerFX = app->audio->LoadFx("Assets/Audio/Fx/chestShimmer.wav");
+	shimmerFX = app->audio->LoadFx("Assets/Audio/Fx/chestShimmer1.wav");
 
 	pbody->ctype = ColliderType::CHEST; 
 	pbody->listener = this;
@@ -45,8 +45,6 @@ bool Chest::Update()
 	position.y = METERS_TO_PIXELS(pbody->body->GetTransform().p.y);
 
 	app->render->DrawTexture(texture, position.x - 4, position.y - 4);
-
-	app->audio->PlayFxWithVolume(shimmerFX, 1, 30);
 
 	app->audio->PlaySpatialFx(shimmerFX,0, (Entity*)this, (Entity*)app->scene->player, 20, 120);
 	

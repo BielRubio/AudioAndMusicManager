@@ -200,15 +200,16 @@ bool Audio::PlaySpatialFx(unsigned int id, int repeat, Entity* entity1, Entity* 
 
 	bool ret = false;
 
+	if (entity1->position.x >= app->render->camera.x ||
+		entity1->position.x < app->render->camera.w ||
+		entity1->position.x >= app->render->camera.y ||
+		entity1->position.x < app->render->camera.h) {
+
+		return false;
+	}
+
 	int distance = sqrt(pow(entity1->position.x - entity2->position.x, 2) + pow(entity1->position.y - entity2->position.y, 2));
 	float normDistance = ((float)distance - (float)minDistance) / ((float)maxDistance - (float)minDistance) * 100;
-	
-	LOG("Distance Player-Chest: %i", distance);
-	LOG("Normalized value: %f", normDistance);
-
-	//app->render->DrawCircle(entity1->position.x * app->win->GetScale(), entity1->position.y * app->win->GetScale(), minDistance * app->win->GetScale(), 255,255,0,255);
-	//app->render->DrawCircle(entity1->position.x * app->win->GetScale(), entity1->position.y * app->win->GetScale(), maxDistance * app->win->GetScale(), 255, 255, 0, 255);
-
 
 	if (distance <= minDistance) {
 		volume = 100;
@@ -223,6 +224,7 @@ bool Audio::PlaySpatialFx(unsigned int id, int repeat, Entity* entity1, Entity* 
 	
 	if (!active)
 		return false;
+
 	if (id > 0 && id <= fx.Count())
 	{
 		Mix_PlayChannel(-1, fx[id - 1], repeat);
