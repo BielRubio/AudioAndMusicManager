@@ -5,6 +5,13 @@
 #include "Player.h"
 #include "Chest.h"
 
+enum class TRACKS {
+
+	UNKNOWN = -1,
+	NORMAL,
+	BATTLE
+};
+
 struct SDL_Texture;
 
 class Scene : public Module

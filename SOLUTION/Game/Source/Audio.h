@@ -9,6 +9,12 @@
 struct _Mix_Music;
 struct Mix_Chunk;
 
+struct Track {
+
+	const char* path;
+	int position;
+};
+
 class Audio : public Module
 {
 public:
@@ -37,10 +43,21 @@ public:
 
 	bool PlaySpatialFx(unsigned int fx, int repeat, Entity* entity1, Entity* entity2, uint minDistance, uint maxDistance);
 
+	bool AddTrack(Track* newTrack);
+
+	bool CleanUpPlaylist();
+
+	//Plays the first track of the playlist
+	bool PlayPlaylist();
+
+	bool ChangeTrack(int newItem);
+
 	int volume, fxvolume;
 private:
 	_Mix_Music* music;
 	List<Mix_Chunk *> fx;
+
+	List<Track *> playList;
 };
 
 #endif // __AUDIO_H__

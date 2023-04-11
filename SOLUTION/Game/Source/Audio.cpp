@@ -200,10 +200,10 @@ bool Audio::PlaySpatialFx(unsigned int id, int repeat, Entity* entity1, Entity* 
 
 	bool ret = false;
 
-	if (entity1->position.x >= app->render->camera.x ||
-		entity1->position.x < app->render->camera.w ||
-		entity1->position.x >= app->render->camera.y ||
-		entity1->position.x < app->render->camera.h) {
+	if (entity1->position.x < app->render->camera.x ||
+		entity1->position.x >= app->render->camera.w ||
+		entity1->position.x < app->render->camera.y ||
+		entity1->position.x >= app->render->camera.h) {
 
 		return false;
 	}
@@ -212,13 +212,13 @@ bool Audio::PlaySpatialFx(unsigned int id, int repeat, Entity* entity1, Entity* 
 	float normDistance = ((float)distance - (float)minDistance) / ((float)maxDistance - (float)minDistance) * 100;
 
 	if (distance <= minDistance) {
-		volume = 100;
+		fxvolume = 100;
 	}
 	else if (distance > minDistance && distance <= maxDistance) {
-		volume = 100 - normDistance;
+		fxvolume = 100 - normDistance;
 	}
 	else {
-		volume = 0;
+		fxvolume = 0;
 	}
 
 	
@@ -228,8 +228,60 @@ bool Audio::PlaySpatialFx(unsigned int id, int repeat, Entity* entity1, Entity* 
 	if (id > 0 && id <= fx.Count())
 	{
 		Mix_PlayChannel(-1, fx[id - 1], repeat);
-		Mix_Volume(-1, volume);
+		Mix_Volume(-1, fxvolume);
 	}
 
 	return ret;
+}
+
+bool Audio::AddTrack(Track* newTrack)
+{
+	if (newTrack != nullptr) playList.Add(newTrack);
+
+	return true;
+}
+
+bool Audio::CleanUpPlaylist()
+{
+	ListItem<Track*>* item;
+
+	for (item = playList.start; item != NULL; item = item->next)
+	{
+		playList.Del(item);
+	}
+
+	return true;
+}
+
+bool Audio::PlayPlaylist()
+{
+
+	ListItem<Track*>* item = playList.start;
+
+	if (item != NULL) {
+
+		PlayMusic(item->data->path);
+	}
+	else {
+		return false;
+	}
+
+	return true;
+}
+
+bool Audio::ChangeTrack(int newItem)
+{
+	ListItem<Track*>* item;
+
+	for (item = playList.start; item != NULL; item = item->next) {
+		if (item->data->position == newItem) {
+			PlayMusic(item->data->path);
+
+			return true;
+		}
+	}
+
+	LOG("Can't change track: New track out of position");
+
+	return false;
 }

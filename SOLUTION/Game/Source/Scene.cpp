@@ -36,6 +36,21 @@ bool Scene::Awake(pugi::xml_node& config)
 	player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
 	player->parameters = config.child("player");
 
+	//Load tracks
+	int i = 0;
+
+	for (pugi::xml_node itemNode = config.child("track"); itemNode; itemNode = itemNode.next_sibling("track"))
+	{
+		Track* track = new Track;
+
+		track->path = itemNode.attribute("path").as_string();
+		track->position = i;
+		
+		app->audio->AddTrack(track);
+
+		i++;
+	}
+
 	return ret;
 }
 
@@ -51,6 +66,8 @@ bool Scene::Start()
 	SString title("Music and Audio Manager");
 	app->win->SetTitle(title.GetString());
 
+	app->audio->PlayPlaylist();
+
 	return true;
 }
 
@@ -63,6 +80,14 @@ bool Scene::PreUpdate()
 // Called each loop iteration
 bool Scene::Update(float dt)
 {
+
+	if (app->input->GetKey(SDL_SCANCODE_0) == KEY_DOWN) {
+		app->audio->ChangeTrack((int)TRACKS::NORMAL);
+	}
+	if (app->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN) {
+		app->audio->ChangeTrack((int)TRACKS::BATTLE);
+	}
+
 	// Draw map
 	app->map->Draw();
 
