@@ -1,5 +1,3 @@
-## TEST
-
 Hi, I am [Biel Rubio Dieste](https://github.com/BielRubio), an student in Videogame Design and Development in CITM.
 This repository was made for an assigment of research in the Project II class. The goal of said assigment was to Research a topic of the process of produciton of a videogame, in specific, the researh of how to implement an Audio Manager for a 2D RPG.
 
