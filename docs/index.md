@@ -23,6 +23,8 @@ Spatial audio is a technology that creates an immersive and realistic 3D sound e
 
 The audio enhancement 3D audio image technique involves the manipulation of sound produced by speakers, surround speakers, or headphones. The audio placement is done above, below, or behind you, within this 3D dimensional space. Thus, the audio is engineered to give you a 3D touch with a deeper depth, height, and width to it. 
 
+![img2](https://github.com/BielRubio/AudioAndMusicManager/main/docs/images/img2.jpg?raw=true)
+
 **1. How it works?**
 
 Spatial audio depends on DSP or Digital Signal Processing in which the analog data is converted into digital data to perform detailed analysis. Spatial audio mimics this process by creating audio that has similar differences in timing, intensity, and frequency for each ear. 
@@ -30,8 +32,6 @@ Spatial audio depends on DSP or Digital Signal Processing in which the analog da
 The way the ear works is comparable to how spatial sound works. A few seconds pass after your right ear first hears a sound coming from the right before your left ear picks up the same sound.
 
 It can become challenging, though, when the delay is tied to the sound’s origin. To put it simply, when sound waves interact with bodies, the time and volume of the sound are impacted. The Head Related Transfer Function (HRTF), which is affected by the varied head orientation and ear anatomy, determines the audio perception delay. As a result, the brain records this information and tells you the sound’s direction of origin.
-
-In 3D spaces
 
 **2. In 2D Videogames**
 
@@ -44,6 +44,8 @@ If, instead we choose to make the concept simplier, without incorporating binaur
    
    **-Second option.** 
    Change the volume of the sound depending of how far the source is from the listener.
+   
+   ![img1](https://github.com/BielRubio/AudioAndMusicManager/main/docs/images/img1.png?raw=true)
    
 ## Track Playlist
 
