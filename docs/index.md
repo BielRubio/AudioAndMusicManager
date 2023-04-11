@@ -10,10 +10,8 @@ This repository was made for an assigment of research in the Project II class. T
     - 2. Spatial Audio
           2.1 How it works?
           2.2 In 2D Videogames
-                2.2.1 How to implement it?
     - 3. Track Playlist
-    - 4. Examples
-    - 5. References
+    - 4. References
     
 ****
 
@@ -35,9 +33,9 @@ It can become challenging, though, when the delay is tied to the sound’s origi
 
 In 3D spaces
 
-**1. In 2D Videogames**
+**2. In 2D Videogames**
 
-When it comes to 2D spaces, spatial audio done as the 3D counterpart is very rare to come across in videogames. The reason being that 2D games usually aren't mede in first person, so its not necessary for the player the know the location of an audio queue just by the sound.
+When it comes to 2D spaces, spatial audio done as the 3D counterpart is very rare to come across in videogames. The reason being that 2D games usually aren't mede in first person, so its not necessary for the player the know the location of an audio queue just by the sound. [CHECK REAL 2D SPATIAL AUDIO](https://webaudioapi.com/samples/spatialized/)
 
 If, instead we choose to make the concept simplier, without incorporating binaural audio, we can consider two main options for implementing spatial audio:
 
@@ -45,10 +43,14 @@ If, instead we choose to make the concept simplier, without incorporating binaur
    Just play the sounds from the sources that appear on-screen.
    
    **-Second option.** 
-   Change the volume of the sound depending of how far the source is from the lisstener.
-
+   Change the volume of the sound depending of how far the source is from the listener.
+   
 ## Track Playlist
 
-## Examples
+A Track playlist is a list of music tracks of a level, each level will have their unique playlists, and each track can be played under the desired circumstances that the developer has choosen, for example:
+
+When the state of the game changes to "Battling", the playlist will change the track to the choosen battle soundtrack of the stage.
 
 ## References
+
+https://www.genderlessvoice.com/what-is-spatial-audio/
