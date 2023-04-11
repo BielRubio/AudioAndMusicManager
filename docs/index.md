@@ -21,7 +21,7 @@ Spatial audio is a technology that creates an immersive and realistic 3D sound e
 
 The audio enhancement 3D audio image technique involves the manipulation of sound produced by speakers, surround speakers, or headphones. The audio placement is done above, below, or behind you, within this 3D dimensional space. Thus, the audio is engineered to give you a 3D touch with a deeper depth, height, and width to it. 
 
-![img2](https://github.com/BielRubio/AudioAndMusicManager/blob/main/docs/images/img2.png)
+![img2](https://github.com/BielRubio/AudioAndMusicManager/blob/main/docs/images/img2.jpg)
 
 **1. How it works?**
 
